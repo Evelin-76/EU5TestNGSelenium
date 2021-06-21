@@ -55,7 +55,7 @@ public class SelectDropdwon {
 
         Select stateDropdwon = new Select(dropdownElement);
 
-        //verify that fors selection is Selact a state
+        //verify that for selection is Select a state
         String expectedOption = "Select a State";
         String actualOption = stateDropdwon.getFirstSelectedOption().getText();
         System.out.println(actualOption);
