@@ -22,7 +22,7 @@ public class SwitchWindow {
     }
     @AfterMethod
     public void tearDown(){
-        driver.quit();
+     //   driver.quit();
     }
     @Test
     public void getTitle() throws InterruptedException {
