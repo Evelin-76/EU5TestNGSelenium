@@ -20,13 +20,5 @@ public class ThreatSleepExample {
         Thread.sleep(2000);
         driver.quit();
     }
-    @Test
-    public void test1() throws InterruptedException {
-        driver.get("http://practice.cybertekschool.com/dynamic_loading/3");
 
-        //it is the static way to stop execution for minutes we select when we need to do it if
-        //it is necessary when we want to run our codes and it requires time to be loaded
-        Thread.sleep(6000);
-        driver.findElement(By.id("username")).sendKeys("Lucas");
-    }
 }
