@@ -26,5 +26,7 @@ public class Tc06{
         Assert.assertTrue(!msg.equals(expectedMsg),"verify msg is NOT 'Thank you for signing up. Click the button below to return to the home page.'");
 
         driver.navigate().to("https://www.tempmailaddress.com/");
+
+        driver.quit();
     }
 }
