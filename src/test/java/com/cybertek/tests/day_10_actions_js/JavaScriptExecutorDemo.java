@@ -21,7 +21,7 @@ public class JavaScriptExecutorDemo {
     @AfterMethod
     public void tearDown() throws InterruptedException{
         Thread.sleep(2000);
-        driver.quit();
+   driver.quit();
 
     }
     @Test

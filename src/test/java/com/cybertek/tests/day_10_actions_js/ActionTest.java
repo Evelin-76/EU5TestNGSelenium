@@ -54,15 +54,15 @@ public class ActionTest {
 
         Actions actions = new Actions(driver);
 
+
         //IF THERE ARE COOKIES BLOCKING THE PAGE VIEW WE CAN USE THIS
         List<WebElement> acceptAndClose = driver.findElements(By.xpath("//*[.='Accept and Close']"));
         List<WebElement> acceptCookies= driver.findElements(By.xpath("//*[.='Accept Cookies']"));
         //Thread.sleep(2000);
         if(acceptAndClose.size() > 0){
             acceptAndClose.get(0).click();
-        }else if(acceptCookies.size()> 0){
-            acceptCookies.get(0).click();
-        }
+       }else if(acceptCookies.size()> 0){
+       }
 
         WebElement source = driver.findElement(By.id("draggable"));
         WebElement target = driver.findElement((By.id("droptarget")));
