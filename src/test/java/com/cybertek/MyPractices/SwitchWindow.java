@@ -1,5 +1,6 @@
 package com.cybertek.MyPractices;
 
+import com.cybertek.utilities.ConfigurationReader;
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +19,7 @@ public class SwitchWindow {
 
     @BeforeMethod
     public void setUp(){
-        driver = WebDriverFactory.getDriver("Chrome");
+        driver = WebDriverFactory.getDriver(ConfigurationReader.get("browser"));
     }
     @AfterMethod
     public void tearDown(){
