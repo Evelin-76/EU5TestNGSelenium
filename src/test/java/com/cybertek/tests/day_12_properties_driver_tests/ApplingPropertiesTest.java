@@ -18,7 +18,7 @@ public class ApplingPropertiesTest {
     }
     @AfterMethod
     public void tearsDown(){
- //       driver.quit();
+        driver.quit();
     }
     @Test
     public void tc1() {
@@ -29,6 +29,7 @@ public class ApplingPropertiesTest {
 
         driver.findElement(By.id("prependedInput")).sendKeys(username);
         driver.findElement(By.id("prependedInput2")).sendKeys(password + Keys.ENTER);
+        //Keys.TAB ->send me to the next step so it is valid as well to enter to the page after login
 
     }
 }
