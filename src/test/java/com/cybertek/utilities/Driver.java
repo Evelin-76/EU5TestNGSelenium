@@ -11,6 +11,8 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import java.util.Locale;
+
 public class Driver {
 
     //1.creating private constructor so we cannot create objects
@@ -26,7 +28,7 @@ public class Driver {
     public static WebDriver get() {
         if (driver == null) {
             String browser = ConfigurationReader.get("browser");
-            switch (browser) {
+            switch (browser.toLowerCase()) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
