@@ -1,4 +1,4 @@
-package com.cybertek.tests.day_12_properties_driver_tests;
+package com.cybertek.tests;
 
 import com.cybertek.tests.day_7_testNG.BeforeAfterMethod;
 import com.cybertek.utilities.Driver;
@@ -13,9 +13,9 @@ import java.util.concurrent.TimeUnit;
 public class TestBase {
 
 
-    WebDriver driver;
-    Actions actions;
-    WebDriverWait wait;
+  protected   WebDriver driver;
+  protected   Actions actions;
+  protected   WebDriverWait wait;
 
     @BeforeMethod
     public void setUp() {
