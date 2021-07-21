@@ -13,10 +13,16 @@ import org.openqa.selenium.safari.SafariDriver;
 
 public class Driver {
 
+    //1.creating private constructor so we cannot create objects
+    // after give access through method created in the same class, we can
+    // create our object we use only this object for multiple options.This case for browsers selection
     private Driver() {}
 
+    //creating a var with WebDriver as data type
     private static WebDriver driver;
 
+    //creating method accessible to our constructor so we can use it in object once constructor
+    //call method. REMIND WE CANNOT CREATE OBJECT BUT WE CAN CALL METHOD FROM PRIVATE CONSTR.
     public static WebDriver get() {
         if (driver == null) {
             String browser = ConfigurationReader.get("browser");
@@ -63,9 +69,13 @@ public class Driver {
     }
 
     public static void closeDriver() {
-        if (driver != null) {
-            driver.quit();
-            driver = null;
+        if (driver != null) {//if it is not null then...
+            driver.quit();//quit it
+            driver = null;//after create an object, if we want to re-use the object again
+                          //we make here driver null to start from the beginning after quit()
+                          //REMIND IT IS READ LINE BY LINE SO WE CODE THIS HERE FOR START ITS
+                          //NULL VALUE AS WELL SO OUR METHOD CAN WORK WITH NULL AGAIN
+                          //in our method starts as --> if (driver == null)
         }
     }
 }
