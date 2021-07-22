@@ -1,5 +1,6 @@
 package com.cybertek.tests.FinWorksERP;
 
+import com.cybertek.utilities.ConfigurationReader;
 import com.cybertek.utilities.WebDriverFactory;
 //import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -9,7 +10,7 @@ import org.openqa.selenium.WebElement;
 public class avatarNameFuntion {
     public static void main(String[] args) throws InterruptedException {
 
-        WebDriver driver = WebDriverFactory.getDriver("chrome");
+        WebDriver driver = WebDriverFactory.getDriver(ConfigurationReader.get("browser"));
 
         driver.get("https://qa.finworkserp.com/web/login#action=120&active_id=channel_inbox");
 
