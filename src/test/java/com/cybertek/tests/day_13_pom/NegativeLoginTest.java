@@ -6,6 +6,7 @@ import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class NegativeLoginTest extends TestBase {
@@ -13,12 +14,10 @@ public class NegativeLoginTest extends TestBase {
     @Test
     public void wrongPasswordTest(){
 
+            driver.findElement(By.id("prependedInput")).sendKeys("user1");
+            driver.findElement(By.id("prependedInput2")).sendKeys("somepassword");
+            driver.findElement(By.id("_submit")).click();
 
-            String username = ConfigurationReader.get("driver_username");
-            String password = ConfigurationReader.get("driver_password");
-
-            driver.findElement(By.id("prependedInput")).sendKeys(username);
-            driver.findElement(By.id("prependedInput2")).sendKeys(password);
-
+        Assert.assertEquals(driver.getCurrentUrl(),"verify url is 'https://qa1.vytrack.com'");
         }
 }
