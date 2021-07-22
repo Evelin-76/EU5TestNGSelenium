@@ -20,7 +20,7 @@ public class Driver {//creating Singleton concept with Driver class for Browsers
     public static WebDriver get() {//method for to be called by constructor and select browser
         if (driver == null) {//our browser needs to be null so we can select one(it is selected in configuration.properties file)
             String browser = ConfigurationReader.get("browser");//access to ConfigurationReader class from utilities, connected to configuration.properties
-            switch (browser) {
+            switch (browser.toLowerCase()) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
