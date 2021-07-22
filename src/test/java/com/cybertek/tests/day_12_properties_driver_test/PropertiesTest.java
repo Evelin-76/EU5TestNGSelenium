@@ -24,13 +24,12 @@ public class PropertiesTest {
 
         driver.get(ConfigurationReader.get("url"));
 
-        driver.findElement(By.id("prependedInput")).sendKeys("User1");
-        driver.findElement(By.id("prependedInput2")).sendKeys("UserUser123"
-                + Keys.ENTER);
+        String username = ConfigurationReader.get("driver_username");
+        String password = ConfigurationReader.get("driver_password");
 
-      //  driver.findElement(By.id("prependedInput")).sendKeys(ConfigurationReader.get("driver_username"));
-      //  driver.findElement(By.id("prependedInput2")).sendKeys(ConfigurationReader.get("driver_password"
-      //  + Keys.ENTER));//we can use Keys.TAB as well since it works moving to the next step
+        driver.findElement(By.id("prependedInput")).sendKeys(ConfigurationReader.get(username));
+        driver.findElement(By.id("prependedInput2")).sendKeys(ConfigurationReader.get(password)
+                + Keys.ENTER);//we can use Keys.TAB as well since it works moving to the next step
     }
 
 }
