@@ -26,14 +26,15 @@ public class TestBase {
         driver.get(ConfigurationReader.get("url"));
     }
 
-    //THIS WAS CLOSING BROWSER AFTER FIRST TC SO I SUBSTITUTED IT FOR @AfterClass AND NOW ALL TCs ARE RUN
-  //  @AfterMethod
-  //  public void tearDown(){
-  //     driver.quit(); //-->SUBSTITUTED FOR Driver.closeDriver() so one object can run all TCs applying Singleton concept
-  //  }
-
-    @AfterClass // @AfterMethod
-    public void tearDownTest(){
-        Driver.closeDriver();
+    //IT IS CLOSING BROWSER AFTER FIRST TC
+    // IT IS USEFUL BECAUSE WE WANT OUR TCs INDEPENDENT FORM EACH OTHER
+    @AfterMethod
+    public void tearDown(){
+       driver.quit();
     }
+//IT is running all of our TCs pointed by same object applying singleton concept
+//    @AfterClass // @AfterMethod
+//    public void tearDownTest(){
+//        Driver.closeDriver();
+//    }
 }
