@@ -49,6 +49,14 @@ public class LoginPage {//WE CREATE HERE THE WAIT TO MANAGE, UPDATE AND MAINTAIN
         loginButton.click();
     }
 
+    public void loginAsDriver(){
+        String username = ConfigurationReader.get("driver_username");
+        String password = ConfigurationReader.get("driver_password");
+
+        usernameInput.sendKeys(username);
+        passwordInput.sendKeys(password);
+        loginButton.click();
+    }
     public void loginAsStoreManager(){
         String username = ConfigurationReader.get("storemanager_username");
         String password = ConfigurationReader.get("storemanager_password");
