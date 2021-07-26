@@ -72,7 +72,7 @@ public class TestBase {
     // IT IS USEFUL BECAUSE WE WANT OUR TCs INDEPENDENT FORM EACH OTHER
     //ITestResult class describes the result of a test in TestNG
     @AfterMethod
-    public void tearDown(ITestResult result) throws IOException {
+    public void tearDown(ITestResult result) throws IOException, InterruptedException {
         //if test fails
         if(result.getStatus() == ITestResult.FAILURE){
             //record the name of failed test case
@@ -87,7 +87,8 @@ public class TestBase {
             //capture the exception and put sinside the report
             extentLogger.fail(result.getThrowable());
         }
-        Driver.closeDriver();
+       // Thread.sleep(1000);
+       // Driver.closeDriver();
     }
 //IT is running all of our TCs pointed by same object applying singleton design
 //    @AfterClass // @AfterMethod
