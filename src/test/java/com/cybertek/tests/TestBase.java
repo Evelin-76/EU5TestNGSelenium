@@ -18,7 +18,7 @@ public class TestBase {
 
     @BeforeMethod
     public void setUp(){
-        driver = Driver.get();
+        driver =  Driver.get();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         actions = new Actions(driver);
@@ -30,9 +30,10 @@ public class TestBase {
     // IT IS USEFUL BECAUSE WE WANT OUR TCs INDEPENDENT FORM EACH OTHER
     @AfterMethod
     public void tearDown(){
-       driver.quit();
+        Driver.closeDriver();
+        //driver.quit();
     }
-//IT is running all of our TCs pointed by same object applying singleton concept
+//IT is running all of our TCs pointed by same object applying singleton design
 //    @AfterClass // @AfterMethod
 //    public void tearDownTest(){
 //        Driver.closeDriver();

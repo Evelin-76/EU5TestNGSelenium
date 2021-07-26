@@ -14,9 +14,10 @@ import org.testng.annotations.Test;
 public class NegativeLoginTest extends TestBase {
 
     @Test
-    public void wrongPasswordTest(){
+    public void wrongPasswordTest() {
 
         LoginPage loginPage = new LoginPage();
+
         loginPage.usernameInput.sendKeys("User1");
         loginPage.passwordInput.sendKeys("somepassword");
         loginPage.loginButton.click();
@@ -24,18 +25,19 @@ public class NegativeLoginTest extends TestBase {
 //            driver.findElement(By.id("prependedInput")).sendKeys("user1");
 //            driver.findElement(By.id("prependedInput2")).sendKeys("somepassword");
 //            driver.findElement(By.id("_submit")).click();
-        Assert.assertEquals(driver.getCurrentUrl(),"https://qa1.vytrack.com/user/login");
-        }
-        @Test
-    public void wrongUsernameTest(){
+        Assert.assertEquals(driver.getCurrentUrl(), "https://qa1.vytrack.com/user/login");
+    }
+//BOTH CANNOT BE EXECUTE BECAUSE SINGLETON DESING IS APPLYED AND THERE ARE + THAN 1 TEST
+          @Test
+        public void wrongUsernameTest() {
 
-        LoginPage loginPage = new LoginPage();
+            LoginPage loginPage = new LoginPage();
 
-        loginPage.usernameInput.sendKeys("someusername");
-        loginPage.passwordInput.sendKeys("UserUser123");
-        loginPage.loginButton.click();
+            loginPage.usernameInput.sendKeys("someusername");
+            loginPage.passwordInput.sendKeys("UserUser123");
+            loginPage.loginButton.click();
 
-        Assert.assertEquals(driver.getCurrentUrl(),"https://qa1.vytrack.com/user/login");
+            Assert.assertEquals(driver.getCurrentUrl(), "https://qa1.vytrack.com/user/login");
         }
 
 }
