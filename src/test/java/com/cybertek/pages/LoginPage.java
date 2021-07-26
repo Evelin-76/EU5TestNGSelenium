@@ -65,5 +65,13 @@ public class LoginPage {//WE CREATE HERE THE WAIT TO MANAGE, UPDATE AND MAINTAIN
         passwordInput.sendKeys(password);
         loginButton.click();
     }
+    public void loginAsSaleManager(){
+        String username = ConfigurationReader.get("salemanager_username");
+        String password = ConfigurationReader.get("salemanager_password");
+
+        usernameInput.sendKeys(username);
+        passwordInput.sendKeys(password);
+        loginButton.click();
+    }
 
 }

@@ -1,6 +1,10 @@
 package com.cybertek.HomeWorks;
 
-public class HtmlReportingHomwork {
+import com.cybertek.pages.LoginPage;
+import com.cybertek.tests.TestBase;
+import org.testng.annotations.Test;
+
+public class HtmlReportingHomwork extends TestBase {
     /*
     open the chrome
     go to qa1.vytrack
@@ -11,4 +15,14 @@ public class HtmlReportingHomwork {
     verify that email is mbrackstone9@example.com
     verify that phone number is +198982323434
      */
+    @Test
+    public void test1(){
+        extentLogger = report.createTest("Customers contacts");
+
+        LoginPage loginPage = new LoginPage();
+
+        extentLogger.info("")
+        loginPage.loginAsSaleManager();
+    }
+
 }
