@@ -27,7 +27,7 @@ public class NegativeLoginTest extends TestBase {
 //            driver.findElement(By.id("_submit")).click();
         Assert.assertEquals(driver.getCurrentUrl(), "https://qa1.vytrack.com/user/login");
     }
-//BOTH CANNOT BE EXECUTE BECAUSE SINGLETON DESING IS APPLYED AND THERE ARE + THAN 1 TEST
+
           @Test
         public void wrongUsernameTest() {
 
