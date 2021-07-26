@@ -3,13 +3,16 @@ package com.cybertek.tests;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.cybertek.utilities.BrowserUtils;
 import com.cybertek.utilities.ConfigurationReader;
 import com.cybertek.utilities.Driver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
@@ -20,7 +23,7 @@ public class TestBase {
     protected ExtentReports report;
     //this class is used for create HTML file
     protected ExtentHtmlReporter htmlReporter;
-    //this will defint a test, enables adding logs, authors test steps
+    //this will define a test, enables adding logs, authors test steps
     protected ExtentTest extentLogger;
 
     @BeforeTest
@@ -55,9 +58,6 @@ public class TestBase {
         report.flush();
     }
 
-
-
-
     @BeforeMethod
     public void setUp(){
         driver =  Driver.get();
@@ -70,10 +70,24 @@ public class TestBase {
 
     //IT IS CLOSING BROWSER AFTER FIRST TC
     // IT IS USEFUL BECAUSE WE WANT OUR TCs INDEPENDENT FORM EACH OTHER
+    //ITestResult class describes the result of a test in TestNG
     @AfterMethod
-    public void tearDown(){
+    public void tearDown(ITestResult result) throws IOException {
+        //if test fails
+        if(result.getStatus() == ITestResult.FAILURE){
+            //record the name of failed test case
+            extentLogger.fail(result.getName());
+
+            //take the screenshot and return location of screenshot
+            String screenShotPath = BrowserUtils.getScreenshot(result.getName());
+
+            //add your screenshot to your report
+            extentLogger.addScreenCaptureFromPath(screenShotPath);
+
+            //capture the exception and put sinside the report
+            extentLogger.fail(result.getThrowable());
+        }
         Driver.closeDriver();
-        //driver.quit();
     }
 //IT is running all of our TCs pointed by same object applying singleton design
 //    @AfterClass // @AfterMethod
