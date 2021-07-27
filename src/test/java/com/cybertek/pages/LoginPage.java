@@ -10,7 +10,7 @@ import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
-public class LoginPage {//WE CREATE HERE THE WAIT TO MANAGE, UPDATE AND MAINTAINED
+public class LoginPage extends BasePage {//WE CREATE HERE THE WAIT TO MANAGE, UPDATE AND MAINTAINED
     // OUR LOCATORS IF NECESSARY
 
     public LoginPage(){
