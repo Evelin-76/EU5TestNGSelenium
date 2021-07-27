@@ -51,5 +51,4 @@ public class HtmlReportingHomwork extends TestBase {
 
         extentLogger.pass("PASS");
     }
-
 }
