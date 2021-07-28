@@ -87,8 +87,8 @@ public class TestBase {
             //capture the exception and put sinside the report
             extentLogger.fail(result.getThrowable());
         }
-        Thread.sleep(2000);
-        Driver.closeDriver();
+      //  Thread.sleep(2000);
+      //  Driver.closeDriver();
     }
 //IT is running all of our TCs pointed by same object applying singleton design
 //    @AfterClass // @AfterMethod
