@@ -5,8 +5,11 @@ import com.cybertek.pages.DashboardPage;
 import com.cybertek.pages.LoginPage;
 import com.cybertek.tests.TestBase;
 import com.cybertek.utilities.ExcelUtil;
+import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.lang.ref.SoftReference;
 
 public class Vytrack_HW1 extends TestBase {
 
@@ -69,7 +72,7 @@ public class Vytrack_HW1 extends TestBase {
         extentLogger.pass("PASS");
     }
     @Test
-    public void tc4(){
+    public void tc4() throws InterruptedException {
 
         extentLogger = report.createTest("Verify that number of calendar events " +
                 "(rows in the table) is equals to number of records");
@@ -81,7 +84,29 @@ public class Vytrack_HW1 extends TestBase {
         extentLogger.info("navigate to Activities / Calendar Events");
         new DashboardPage().navigateToModule("Activities","Calendar Events");
 
-       // ExcelUtil numberEvents = new ExcelUtil("");
+        AllCalendarEvents allCalendarEvents = new AllCalendarEvents();
+      //  System.out.println(allCalendarEvents.getAllRowsNumber());
+
+       // System.out.println(allCalendarEvents.numberOfPages.getText());
+
+      //  System.out.println(allCalendarEvents.TotalOfRecord.getText());
+      //  String num =allCalendarEvents.numberOfPages.getText();
+      //  num = num.replace("Of ","");
+      //  num = num.replace(" |","");
+
+     //   System.out.println(num);
+
+      //  Integer i = Integer.valueOf(num);
+      //  System.out.println(i);
+
+        allCalendarEvents.lastPageRows();
+
+     //   String intToString = Integer.toString(allCalendarEvents.getAllRowsNumber());
+     //   String allNumberRows = intToString;
+     //   String totalRecords = allCalendarEvents.TotalOfRecord.getText();
+     //   Assert.assertEquals(totalRecords,allNumberRows,"verify row number is equal to record number");
+
+        // ExcelUtil numberEvents = new ExcelUtil("");
        // System.out.println(numberEvents.rowCount());
 
 

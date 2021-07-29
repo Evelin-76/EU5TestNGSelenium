@@ -61,7 +61,7 @@ public class TestBase {
     @BeforeMethod
     public void setUp(){
         driver =  Driver.get();
-        driver.manage().window().maximize();
+     //   driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         actions = new Actions(driver);
         wait = new WebDriverWait(driver,10);
@@ -88,7 +88,7 @@ public class TestBase {
             extentLogger.fail(result.getThrowable());
         }
       //  Thread.sleep(2000);
-      //  Driver.closeDriver();
+        Driver.closeDriver();
     }
 //IT is running all of our TCs pointed by same object applying singleton design
 //    @AfterClass // @AfterMethod
