@@ -4,12 +4,19 @@ import com.cybertek.pages.AllCalendarEvents;
 import com.cybertek.pages.DashboardPage;
 import com.cybertek.pages.LoginPage;
 import com.cybertek.tests.TestBase;
+import com.cybertek.utilities.Driver;
 import com.cybertek.utilities.ExcelUtil;
+import org.apache.poi.ss.formula.functions.T;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.lang.ref.SoftReference;
+import java.util.List;
 
 public class Vytrack_HW1 extends TestBase {
 
@@ -85,7 +92,23 @@ public class Vytrack_HW1 extends TestBase {
         new DashboardPage().navigateToModule("Activities","Calendar Events");
 
         AllCalendarEvents allCalendarEvents = new AllCalendarEvents();
-      //  System.out.println(allCalendarEvents.getAllRowsNumber());
+        Thread.sleep(1000);
+        System.out.println(allCalendarEvents.getLastNumberOfPageString());
+        System.out.println(allCalendarEvents.getLastNumberPage());
+
+        Thread.sleep(2000);
+        System.out.println(allCalendarEvents.TotalOfRecord.getText());
+        System.out.println(allCalendarEvents.getAllRecordsString());
+        System.out.println(allCalendarEvents.getTotalRecords());
+
+        Thread.sleep(2000);
+       allCalendarEvents.lastCellInfoIndex.getAttribute("data-column-label");
+        // allCalendarEvents.lastPageRows();
+
+       // System.out.println(allCalendarEvents.counterRecord.getText());
+
+
+        //  System.out.println(allCalendarEvents.getAllRowsNumber());
 
        // System.out.println(allCalendarEvents.numberOfPages.getText());
 
@@ -98,8 +121,8 @@ public class Vytrack_HW1 extends TestBase {
 
       //  Integer i = Integer.valueOf(num);
       //  System.out.println(i);
-
-        allCalendarEvents.lastPageRows();
+       // Thread.sleep(2000);
+       // allCalendarEvents.lastPageRows();
 
      //   String intToString = Integer.toString(allCalendarEvents.getAllRowsNumber());
      //   String allNumberRows = intToString;
@@ -108,6 +131,25 @@ public class Vytrack_HW1 extends TestBase {
 
         // ExcelUtil numberEvents = new ExcelUtil("");
        // System.out.println(numberEvents.rowCount());
+
+
+    }
+    @Test
+    public void tc5() throws InterruptedException {
+        extentLogger = report.createTest("Verify all calendar events are selected");
+
+        extentLogger.info("login as store manager");
+        LoginPage loginPage = new LoginPage();
+        loginPage.loginAsStoreManager();
+
+        extentLogger.info("navigate to Activities / Calendar Events");
+        new DashboardPage().navigateToModule("Activities","Calendar Events");
+
+        extentLogger.info("click check box for select all options");
+        AllCalendarEvents allCalendarEvents = new AllCalendarEvents();
+        Thread.sleep(1000);
+      //  allCalendarEvents.mainCheckBox.click();
+        System.out.println(allCalendarEvents.allCheckBoxesSelected());
 
 
     }
