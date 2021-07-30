@@ -22,7 +22,8 @@ public class AllCalendarEvents extends BasePage{
     public WebElement numberOfPages;
     @FindBy(xpath = "//*[starts-with(text(),'Total of')]")
     public WebElement TotalOfRecord;
-
+    @FindBy (xpath = "//tr/td[2]")
+    public WebElement everyCell;
     String totalNumOfPages = numberOfPages.getText();
 
     public Integer getLastNumberPage(){
@@ -59,5 +60,14 @@ public class AllCalendarEvents extends BasePage{
         List<WebElement> allRowsNumber = Driver.get().findElements(By.cssSelector("tr.grid-row"));
         for (WebElement row : allRowsNumber) { }
        return allRowsNumber.size();
+    }
+    private int numberColunm;
+    private int numberCell;
+    public WebElement getCell(int numberColumn, int numberCell){
+        this.numberColunm = numberColumn;
+        this.numberCell = numberCell;
+        WebElement cell = Driver.get().findElement(By.xpath("//tr["+numberColumn+"]/td["+numberCell+"]"));
+        return cell;
+
     }
 }

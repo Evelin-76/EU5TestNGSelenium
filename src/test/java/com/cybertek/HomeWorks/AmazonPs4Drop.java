@@ -18,7 +18,7 @@ public class AmazonPs4Drop {
         String text = card.getAttribute("textContent");
         System.out.println(text);
         card.click();
-        //driver.quit();
+        driver.quit();
 
 
 

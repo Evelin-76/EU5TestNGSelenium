@@ -1,6 +1,7 @@
 package com.cybertek.HomeWorks.VtrackHomework_day_16;
 
 import com.cybertek.pages.AllCalendarEvents;
+import com.cybertek.pages.CalendarEventsGeneralInformation;
 import com.cybertek.pages.DashboardPage;
 import com.cybertek.pages.LoginPage;
 import com.cybertek.tests.TestBase;
@@ -112,4 +113,23 @@ public class Vytrack_HW1 extends TestBase {
 
     }
 
+
+    @Test
+    public  void tc6(){
+        extentLogger = report.createTest("Verify that number of calendar events " +
+                "(rows in the table) is equals to number of records");
+
+        extentLogger.info("login as store manager");
+        LoginPage loginPage = new LoginPage();
+        loginPage.loginAsStoreManager();
+
+        extentLogger.info("navigate to Activities / Calendar Events");
+        new DashboardPage().navigateToModule("Activities","Calendar Events");
+
+        AllCalendarEvents allCalendarEvents = new AllCalendarEvents();
+        allCalendarEvents.getCell(2,2).getText();
+
+        CalendarEventsGeneralInformation calendarEventsGeneralInformation = new CalendarEventsGeneralInformation();
+
+    }
 }
