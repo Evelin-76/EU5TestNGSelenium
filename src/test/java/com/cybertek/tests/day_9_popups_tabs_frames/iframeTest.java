@@ -20,7 +20,7 @@ public class iframeTest {
     @AfterMethod
     public void tearDown() throws InterruptedException{
         Thread.sleep(2000);
-        driver.quit();
+       // driver.quit();
     }
     @Test
     public void test1() throws InterruptedException {

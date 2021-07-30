@@ -88,7 +88,7 @@ public class TestBase {
             extentLogger.fail(result.getThrowable());
         }
       //  Thread.sleep(2000);
-     //   Driver.closeDriver();
+        Driver.closeDriver();
     }
 //IT is running all of our TCs pointed by same object applying singleton design
 //    @AfterClass // @AfterMethod
