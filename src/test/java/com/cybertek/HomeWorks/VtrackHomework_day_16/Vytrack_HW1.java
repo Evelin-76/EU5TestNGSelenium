@@ -149,8 +149,17 @@ public class Vytrack_HW1 extends TestBase {
         extentLogger.info("click check box for select all options");
         AllCalendarEvents allCalendarEvents = new AllCalendarEvents();
         Thread.sleep(1000);
-      //  allCalendarEvents.mainCheckBox.click();
+        allCalendarEvents.mainCheckBox.click();
+
+        extentLogger.info("verifying all boxes are selected");
         System.out.println(allCalendarEvents.allCheckBoxesSelected());
+        boolean expecetedResoltisSelected = true;
+        boolean actualResultIsSelected = allCalendarEvents.allCheckBoxesSelected();
+
+        Assert.assertEquals(actualResultIsSelected,expecetedResoltisSelected,
+                "Verify all checkboxes are selected");
+
+        extentLogger.pass("PASS");
 
 
     }

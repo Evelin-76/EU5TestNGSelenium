@@ -37,7 +37,7 @@ public class AllCalendarEvents extends BasePage{
     @FindBy(css = "[class=\"btn btn-default btn-small dropdown-toggle\"] [type=\"checkbox\"]")
     public WebElement mainCheckBox;
     @FindBy(css = ".grid-row.row-click-action")
-    public WebElement commonCheckBoxOfEveryRow;
+    public WebElement checkBoNonSelected;
     @FindBy(css = ".grid-row.row-click-action.row-selected")
     public WebElement checkBoxSelected;
 
@@ -129,13 +129,13 @@ public class AllCalendarEvents extends BasePage{
     public boolean allCheckBoxesSelected() {
         boolean flag = false;
 
-        List<WebElement> options = Driver.get().findElements(By.cssSelector(".grid-row.row-click-action"));
+      List<WebElement> options = Driver.get().findElements(By.cssSelector(".grid-row.row-click-action"));
         WebElement selected = checkBoxSelected;
         for (WebElement element : options) {
-            if (element != selected) {
-                flag = true;
-            } else {
+            if (element.getAttribute("class").equals("grid-row row-click-action")) {
                 flag = false;
+            } else {
+                flag = true;
             }
         }
         return flag;
