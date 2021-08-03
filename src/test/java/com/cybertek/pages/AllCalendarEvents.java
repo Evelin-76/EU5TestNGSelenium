@@ -107,21 +107,21 @@ public class AllCalendarEvents extends BasePage{
 
     }
 
-    public int getAllRowsNumber() {
+    public void getAllRowsNumber() {
         // List<WebElement> allRowsNumber = Driver.get().findElements(By.cssSelector("table[class*='table']>tbody>tr"));
         List<WebElement> allRowsNumber = Driver.get().findElements(By.cssSelector("tr.grid-row"));
         for (WebElement row : allRowsNumber) {
         }
-        return allRowsNumber.size();
+       //return
         for (WebElement row : allRowsNumber) { }
-       return allRowsNumber.size();
+      // return allRowsNumber.size();
     }
     private int numberColunm;
-    private int numberCell;
-    public WebElement getCell(int numberColumn, int numberCell){
+    private int numberRow;
+    public WebElement getCell(int numberColumn, int numberRow) {
         this.numberColunm = numberColumn;
-        this.numberCell = numberCell;
-        WebElement cell = Driver.get().findElement(By.xpath("//tr["+numberColumn+"]/td["+numberCell+"]"));
+        this.numberRow = numberRow;
+        WebElement cell = Driver.get().findElement(By.xpath("//tr["+numberRow+"]/td["+numberColumn+"]"));
         return cell;
 
     }

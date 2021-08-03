@@ -56,6 +56,7 @@ public class ListOfElements {
         //passing locater which does not exist returns wont throw NoSuchElement
         // size will be 0
         List<WebElement> buttons = driver.findElements(By.tagName("buttonSADFas"));
+
     }
 
 }

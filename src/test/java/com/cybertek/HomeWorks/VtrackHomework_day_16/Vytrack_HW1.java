@@ -14,10 +14,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.lang.ref.SoftReference;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Vytrack_HW1 extends TestBase {
 
@@ -165,8 +168,9 @@ public class Vytrack_HW1 extends TestBase {
     }
 
 
+
     @Test
-    public  void tc6(){
+    public  void tc6() throws InterruptedException {
         extentLogger = report.createTest("Verify that number of calendar events " +
                 "(rows in the table) is equals to number of records");
 
@@ -178,9 +182,12 @@ public class Vytrack_HW1 extends TestBase {
         new DashboardPage().navigateToModule("Activities","Calendar Events");
 
         AllCalendarEvents allCalendarEvents = new AllCalendarEvents();
-        allCalendarEvents.getCell(2,2).getText();
+        Thread.sleep(2000);
+        allCalendarEvents.getCell(2, 1).click();
 
+        Thread.sleep(3000);
         CalendarEventsGeneralInformation calendarEventsGeneralInformation = new CalendarEventsGeneralInformation();
-
+        calendarEventsGeneralInformation.GeneralInfoTable();
     }
+
 }
